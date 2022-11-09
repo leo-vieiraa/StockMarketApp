@@ -3,7 +3,7 @@ package com.example.stockmarketapp.di
 import android.app.Application
 import androidx.room.Room
 import com.example.stockmarketapp.home.data.local.StockDatabase
-import com.example.stockmarketapp.home.data.remote.dto.StockApi
+import com.example.stockmarketapp.home.data.remote.StockApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
