@@ -2,14 +2,13 @@ package com.example.stockmarketapp.home.data.csv
 
 import com.example.stockmarketapp.home.data.mapper.toIntradayInfo
 import com.example.stockmarketapp.home.data.remote.dto.IntradayInfoDto
-import com.example.stockmarketapp.home.domain.model.CompanyListing
 import com.example.stockmarketapp.home.domain.model.IntradayInfo
 import com.opencsv.CSVReader
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.InputStream
 import java.io.InputStreamReader
-import java.time.LocalDateTime
+import java.time.LocalDate
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -29,7 +28,7 @@ class IntradayInfoParser @Inject constructor() : CSVParser<IntradayInfo> {
                     dto.toIntradayInfo()
                 }
                 .filter {
-                    it.date.dayOfMonth == LocalDateTime.now().minusDays(1).dayOfMonth
+                    it.date.dayOfMonth == LocalDate.now().minusDays(1).dayOfMonth
                 }
                 .sortedBy {
                     it.date.hour
